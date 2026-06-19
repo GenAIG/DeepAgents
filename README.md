@@ -491,74 +491,168 @@ Claude / Nova / GPT Models
 
 If you understand the Travel Planner example, you understand the core Deep Agent architecture.
 
-Prebuilt middleware: https://docs.langchain.com/oss/python/langchain/middleware/built-in
-Overview Middelware: https://docs.langchain.com/oss/python/langchain/middleware/overview
+# 🚀 DeepAgents + LangGraph Studio Setup
 
+A step-by-step guide for building AI agents using **DeepAgents**, **LangGraph Studio**, **LangSmith**, **Google Gemini**, and **LangChain Middleware**.
 
-DeepAgents + LangGraph Studio Setup
-This guide walks through setting up a DeepAgents project using LangGraph Studio, LangSmith, and Gemini.
+---
 
-Prerequisites
-	• Python 3.11+
-	• UV Package Manager
-	• LangSmith Account
-	• Google Cloud Project
-	• Gemini API Access
+## 📋 Table of Contents
 
-Useful Resources
-Official Documentation
-	• LangSmith: https://smith.langchain.com
-	• DeepAgents: https://docs.langchain.com/oss/python/deepagents
-	• LangGraph: https://docs.langchain.com/oss/python/langgraph
-	• LangGraph CLI: https://docs.langchain.com/langgraph-platform/local-server
-	• Middleware: https://docs.langchain.com/oss/python/langchain/middleware
-	• Google GenAI Integration: https://docs.langchain.com/oss/python/integrations/chat/google_generative_ai
+* [Overview](#overview)
+* [Prerequisites](#prerequisites)
+* [Useful Resources](#useful-resources)
+* [Project Setup](#project-setup)
+* [Environment Configuration](#environment-configuration)
+* [Create Your First Agent](#create-your-first-agent)
+* [Project Structure](#project-structure)
+* [LangGraph Configuration](#langgraph-configuration)
+* [Run LangGraph Studio](#run-langgraph-studio)
+* [Middleware](#middleware)
+* [Common Commands](#common-commands)
+* [Troubleshooting](#troubleshooting)
+* [Learning References](#learning-references)
 
-Step 1: Create LangSmith Account
-	1. Create an account in LangSmith.
-	2. Generate an API Key.
-	3. Store the API key securely.
-Recommended Environment Variables:
-LANGSMITH_TRACING=true
-LANGSMITH_ENDPOINT=https://api.smith.langchain.com
-LANGSMITH_API_KEY=<your-api-key>
-LANGSMITH_PROJECT=deepagents
-It is recommended to configure these as system environment variables.
+---
 
-Step 2: Create Project
-Create a new project directory:
+# Overview
+
+This project demonstrates how to:
+
+* Build AI agents using DeepAgents
+* Configure LangSmith tracing
+* Use Google Gemini models
+* Run agents in LangGraph Studio
+* Add Middleware for observability and guardrails
+* Debug workflows visually
+
+---
+
+# Prerequisites
+
+Before starting, ensure you have:
+
+| Requirement          | Version  |
+| -------------------- | -------- |
+| Python               | 3.11+    |
+| UV Package Manager   | Latest   |
+| LangSmith Account    | Required |
+| Google Cloud Project | Required |
+| Gemini API Access    | Required |
+
+---
+
+# Useful Resources
+
+## Core Frameworks
+
+| Resource      | Link                                                       |
+| ------------- | ---------------------------------------------------------- |
+| LangSmith     | https://smith.langchain.com                                |
+| DeepAgents    | https://docs.langchain.com/oss/python/deepagents           |
+| LangGraph     | https://docs.langchain.com/oss/python/langgraph            |
+| LangGraph CLI | https://docs.langchain.com/langgraph-platform/local-server |
+
+## Middleware
+
+| Resource            | Link                                                                |
+| ------------------- | ------------------------------------------------------------------- |
+| Middleware Overview | https://docs.langchain.com/oss/python/langchain/middleware/overview |
+| Built-in Middleware | https://docs.langchain.com/oss/python/langchain/middleware/built-in |
+
+## Google Gemini
+
+| Resource                 | Link                                                                         |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| Google GenAI Integration | https://docs.langchain.com/oss/python/integrations/chat/google_generative_ai |
+| Gemini Documentation     | https://ai.google.dev                                                        |
+
+---
+
+# Project Setup
+
+## 1. Create Project Directory
+
+```bash
 mkdir deepagents
 cd deepagents
-Initialize the project:
-uv init .
-Install dependencies:
-uv add deepagents langchain[google-genai] python-dotenv langgraph-cli[inmem]
+```
 
-Step 3: Create .env File
-Create a .env file:
+## 2. Initialize UV Project
+
+```bash
+uv init .
+```
+
+## 3. Install Dependencies
+
+```bash
+uv add deepagents \
+       langchain[google-genai] \
+       python-dotenv \
+       langgraph-cli[inmem]
+```
+
+---
+
+# Environment Configuration
+
+Create a `.env` file.
+
+```env
 PROJECT_ID=<your-google-cloud-project-id>
+
 LANGSMITH_TRACING=true
 LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 LANGSMITH_API_KEY=<your-api-key>
 LANGSMITH_PROJECT=deepagents
+```
 
-Step 4: Create Agent
-Create a file named main.py.
+---
+
+# LangSmith Setup
+
+1. Create a LangSmith account.
+2. Generate an API key.
+3. Configure the following environment variables:
+
+```bash
+LANGSMITH_TRACING=true
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+LANGSMITH_API_KEY=<your-api-key>
+LANGSMITH_PROJECT=deepagents
+```
+
+---
+
+# Create Your First Agent
+
+Create a file named `main.py`.
+
+```python
+from dotenv import load_dotenv
 from deepagents import create_deep_agent
 from langchain_google_genai import ChatGoogleGenerativeAI
-from dotenv import load_dotenv
 import os
+
 load_dotenv()
+
 model = ChatGoogleGenerativeAI(
     model="gemini-3.5-flash",
     project=os.getenv("PROJECT_ID")
 )
+
 agent = create_deep_agent(
     model=model,
-    system_prompt="You are a research assistant"
+    system_prompt="You are a research assistant."
 )
+```
 
-Project Structure
+---
+
+# Project Structure
+
+```text
 deepagents/
 │
 ├── .env
@@ -566,59 +660,221 @@ deepagents/
 ├── langgraph.json
 ├── pyproject.toml
 └── .venv/
+```
 
+---
 
-Step 5: Configure LangGraph
-Create a file named langgraph.json.
+# LangGraph Configuration
+
+Create a file named `langgraph.json`.
+
+```json
 {
   "dependencies": ".",
   "graphs": {
     "deepagent-default": "main:agent"
   }
 }
+```
 
-Step 6: Run LangGraph Studio
-Start LangGraph development server:
+---
+
+# Run LangGraph Studio
+
+Start the development server:
+
+```bash
 uv run langgraph dev
-After startup, LangGraph Studio will be available locally.
+```
 
+Once started, LangGraph Studio will be available locally.
 
-Middleware
-DeepAgents automatically includes middleware support.
-Middleware can be used for:
-	• Logging
-	• Human Approval
-	• PII Filtering
-	• Summarization
-	• Request Validation
-	• Auditing
-Example:
+---
+
+# Middleware
+
+DeepAgents supports LangChain Middleware for adding runtime controls and observability.
+
+## Common Middleware Use Cases
+
+* Logging
+* Human Approval
+* PII Detection
+* Summarization
+* Request Validation
+* Auditing
+* Security Controls
+* Tool Call Monitoring
+
+---
+
+## Example: Summarization Middleware
+
+```python
 from langchain.middleware import SummarizationMiddleware
-middleware = SummarizationMiddleware()
-Reference:
-https://docs.langchain.com/oss/python/langchain/middleware
 
-Common Commands
-Install Dependencies
+middleware = SummarizationMiddleware()
+```
+
+---
+
+## Built-In Middleware
+
+LangChain provides several prebuilt middleware components:
+
+* SummarizationMiddleware
+* HumanInTheLoopMiddleware
+* PiiMiddleware
+* ToolCallLimitMiddleware
+* Logging Middleware
+* Custom Middleware Support
+
+Reference:
+
+https://docs.langchain.com/oss/python/langchain/middleware/built-in
+
+---
+
+## Middleware Architecture
+
+```text
+User Request
+      │
+      ▼
+ Middleware Layer
+      │
+ ┌────┼────┐
+ ▼    ▼    ▼
+PII Logging HITL
+      │
+      ▼
+ Deep Agent
+      │
+      ▼
+ LLM / Tools
+      │
+      ▼
+ Response
+```
+
+---
+
+# Common Commands
+
+## Install Dependencies
+
+```bash
 uv sync
-Run Agent
+```
+
+## Run Agent
+
+```bash
 uv run python main.py
-Run LangGraph Studio
+```
+
+## Run LangGraph Studio
+
+```bash
 uv run langgraph dev
-Update Dependencies
+```
+
+## Upgrade Dependencies
+
+```bash
 uv lock --upgrade
 uv sync
+```
 
+## View Installed Packages
 
-Learning References
-DeepAgents
+```bash
+uv pip list
+```
+
+---
+
+# Troubleshooting
+
+## Missing LangSmith API Key
+
+Error:
+
+```text
+LANGSMITH_API_KEY not found
+```
+
+Solution:
+
+```bash
+export LANGSMITH_API_KEY=<your-key>
+```
+
+Windows:
+
+```powershell
+$env:LANGSMITH_API_KEY="<your-key>"
+```
+
+---
+
+## Missing Google Cloud Project ID
+
+Error:
+
+```text
+PROJECT_ID not found
+```
+
+Solution:
+
+```env
+PROJECT_ID=my-gcp-project
+```
+
+---
+
+# Learning References
+
+## DeepAgents
+
 https://docs.langchain.com/oss/python/deepagents
-LangGraph
+
+## LangGraph
+
 https://docs.langchain.com/oss/python/langgraph
-LangSmith
+
+## LangSmith
+
 https://smith.langchain.com
-Middleware
-https://docs.langchain.com/oss/python/langchain/middleware
-Google Gemini
+
+## Middleware Overview
+
+https://docs.langchain.com/oss/python/langchain/middleware/overview
+
+## Built-In Middleware
+
+https://docs.langchain.com/oss/python/langchain/middleware/built-in
+
+## Google Gemini
+
 https://ai.google.dev
 
+---
+
+# Next Topics
+
+* DeepAgents Tools
+* Skills
+* Subagents
+* Async Subagents
+* Human-in-the-Loop Workflows
+* Multi-Agent Systems
+* LangGraph Studio Debugging
+* Production Deployment
+* Agent Evaluation with LangSmith
+* Custom Middleware Development
+
+---
+
+⭐ If you found this useful, explore LangGraph Studio and DeepAgents together to build production-ready AI agents.
