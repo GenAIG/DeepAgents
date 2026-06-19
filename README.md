@@ -861,20 +861,3 @@ https://docs.langchain.com/oss/python/langchain/middleware/built-in
 https://ai.google.dev
 
 ---
-
-# Next Topics
-
-* DeepAgents Tools
-* Skills
-* Subagents
-* Async Subagents
-* Human-in-the-Loop Workflows
-* Multi-Agent Systems
-* LangGraph Studio Debugging
-* Production Deployment
-* Agent Evaluation with LangSmith
-* Custom Middleware Development
-
----
-
-⭐ If you found this useful, explore LangGraph Studio and DeepAgents together to build production-ready AI agents.
