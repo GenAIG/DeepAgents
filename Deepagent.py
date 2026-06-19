@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from deepagents import create_deep_agent
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
@@ -32,4 +33,40 @@ def main():
 
 
 if __name__ == "__main__":
+=======
+from deepagents import create_deep_agent
+from langchain_google_genai import ChatGoogleGenerativeAI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+def main():
+    model = ChatGoogleGenerativeAI(
+        model="gemini-3.5-flash",
+        project=os.getenv('GOOGLE_CLOUD_PROJECT')
+    )
+    result = model.invoke("What is 5 plus 3?")
+    print(result.content)
+    
+    agent = create_deep_agent(
+        #model="google_genai:gemini-3.5-flash",
+        model=model,
+        tools=[],
+        system_prompt="You are a helpful assistant."
+    )
+    result = agent.invoke({
+        "messages": [
+            {
+                "role": "user",
+                "content": "What is 5 plus 3?"
+            }
+        ]
+    })
+    for message in result['messages']:
+        message.pretty_print()
+
+
+if __name__ == "__main__":
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
     main()
