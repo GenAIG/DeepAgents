@@ -490,3 +490,135 @@ Claude / Nova / GPT Models
 ## Key Takeaway
 
 If you understand the Travel Planner example, you understand the core Deep Agent architecture.
+
+Prebuilt middleware: https://docs.langchain.com/oss/python/langchain/middleware/built-in
+Overview Middelware: https://docs.langchain.com/oss/python/langchain/middleware/overview
+
+
+DeepAgents + LangGraph Studio Setup
+This guide walks through setting up a DeepAgents project using LangGraph Studio, LangSmith, and Gemini.
+
+Prerequisites
+	• Python 3.11+
+	• UV Package Manager
+	• LangSmith Account
+	• Google Cloud Project
+	• Gemini API Access
+
+Useful Resources
+Official Documentation
+	• LangSmith: https://smith.langchain.com
+	• DeepAgents: https://docs.langchain.com/oss/python/deepagents
+	• LangGraph: https://docs.langchain.com/oss/python/langgraph
+	• LangGraph CLI: https://docs.langchain.com/langgraph-platform/local-server
+	• Middleware: https://docs.langchain.com/oss/python/langchain/middleware
+	• Google GenAI Integration: https://docs.langchain.com/oss/python/integrations/chat/google_generative_ai
+
+Step 1: Create LangSmith Account
+	1. Create an account in LangSmith.
+	2. Generate an API Key.
+	3. Store the API key securely.
+Recommended Environment Variables:
+LANGSMITH_TRACING=true
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+LANGSMITH_API_KEY=<your-api-key>
+LANGSMITH_PROJECT=deepagents
+It is recommended to configure these as system environment variables.
+
+Step 2: Create Project
+Create a new project directory:
+mkdir deepagents
+cd deepagents
+Initialize the project:
+uv init .
+Install dependencies:
+uv add deepagents langchain[google-genai] python-dotenv langgraph-cli[inmem]
+
+Step 3: Create .env File
+Create a .env file:
+PROJECT_ID=<your-google-cloud-project-id>
+LANGSMITH_TRACING=true
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+LANGSMITH_API_KEY=<your-api-key>
+LANGSMITH_PROJECT=deepagents
+
+Step 4: Create Agent
+Create a file named main.py.
+from deepagents import create_deep_agent
+from langchain_google_genai import ChatGoogleGenerativeAI
+from dotenv import load_dotenv
+import os
+load_dotenv()
+model = ChatGoogleGenerativeAI(
+    model="gemini-3.5-flash",
+    project=os.getenv("PROJECT_ID")
+)
+agent = create_deep_agent(
+    model=model,
+    system_prompt="You are a research assistant"
+)
+
+Project Structure
+deepagents/
+│
+├── .env
+├── main.py
+├── langgraph.json
+├── pyproject.toml
+└── .venv/
+
+
+Step 5: Configure LangGraph
+Create a file named langgraph.json.
+{
+  "dependencies": ".",
+  "graphs": {
+    "deepagent-default": "main:agent"
+  }
+}
+
+Step 6: Run LangGraph Studio
+Start LangGraph development server:
+uv run langgraph dev
+After startup, LangGraph Studio will be available locally.
+
+
+Middleware
+DeepAgents automatically includes middleware support.
+Middleware can be used for:
+	• Logging
+	• Human Approval
+	• PII Filtering
+	• Summarization
+	• Request Validation
+	• Auditing
+Example:
+from langchain.middleware import SummarizationMiddleware
+middleware = SummarizationMiddleware()
+Reference:
+https://docs.langchain.com/oss/python/langchain/middleware
+
+Common Commands
+Install Dependencies
+uv sync
+Run Agent
+uv run python main.py
+Run LangGraph Studio
+uv run langgraph dev
+Update Dependencies
+uv lock --upgrade
+uv sync
+
+
+Learning References
+DeepAgents
+https://docs.langchain.com/oss/python/deepagents
+LangGraph
+https://docs.langchain.com/oss/python/langgraph
+LangSmith
+https://smith.langchain.com
+Middleware
+https://docs.langchain.com/oss/python/langchain/middleware
+Google Gemini
+https://ai.google.dev
+
