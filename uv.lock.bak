@@ -43,6 +43,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "blockbuster"
 version = "1.5.26"
 source = { registry = "https://pypi.org/simple" }
@@ -55,6 +56,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "bracex"
 version = "2.6"
 source = { registry = "https://pypi.org/simple" }
@@ -175,6 +178,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "click"
 version = "8.4.1"
 source = { registry = "https://pypi.org/simple" }
@@ -217,6 +221,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "cryptography"
 version = "49.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -311,12 +317,15 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "forbiddenfruit"
 version = "0.1.4"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/e6/79/d4f20e91327c98096d605646bdc6a5ffedae820f38d378d3515c42ec5e60/forbiddenfruit-0.1.4.tar.gz", hash = "sha256:e3f7e66561a29ae129aac139a85d610dbf3dd896128187ed5454b6421f624253", size = 43756, upload-time = "2021-01-16T21:03:35.401Z" }
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "google-auth"
 version = "2.55.0"
 source = { registry = "https://pypi.org/simple" }
@@ -356,6 +365,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "googleapis-common-protos"
 version = "1.75.0"
 source = { registry = "https://pypi.org/simple" }
@@ -445,6 +455,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "h11"
 version = "0.16.0"
 source = { registry = "https://pypi.org/simple" }
@@ -467,6 +479,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "httptools"
 version = "0.8.0"
 source = { registry = "https://pypi.org/simple" }
@@ -493,6 +506,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "httpx"
 version = "0.28.1"
 source = { registry = "https://pypi.org/simple" }
@@ -592,6 +607,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "jsonschema-rs"
 version = "0.44.1"
 source = { registry = "https://pypi.org/simple" }
@@ -623,25 +639,39 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "jun2026"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "deepagents" },
+<<<<<<< HEAD
     { name = "langchain", extra = ["google-genai"] },
     { name = "langchain-core" },
     { name = "langchain-google-genai" },
     { name = "langgraph-cli", extra = ["inmem"] },
+=======
+    { name = "langchain" },
+    { name = "langchain-core" },
+    { name = "langchain-google-genai" },
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
     { name = "python-dotenv" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "deepagents", specifier = ">=0.6.10" },
+<<<<<<< HEAD
     { name = "langchain", extras = ["google-genai"], specifier = ">=1.3.9" },
     { name = "langchain-core", specifier = ">=1.4.7" },
     { name = "langchain-google-genai", specifier = ">=4.2.5" },
     { name = "langgraph-cli", extras = ["inmem"], specifier = ">=0.4.30" },
+=======
+    { name = "langchain", specifier = ">=1.3.9" },
+    { name = "langchain-core", specifier = ">=1.4.7" },
+    { name = "langchain-google-genai", specifier = ">=4.2.5" },
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
     { name = "python-dotenv", specifier = ">=1.2.2" },
 ]
 
@@ -659,11 +689,14 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/b7/55/3481619d21b9bdfbfda8680fba5cfc6cfe926789b8eaaad95353078cfa20/langchain-1.3.9-py3-none-any.whl", hash = "sha256:4af49ad1095799e4408b489fb79d4b8b49292453618b202d8a697fca59bb6871", size = 132873, upload-time = "2026-06-12T16:53:25.489Z" },
 ]
 
+<<<<<<< HEAD
 [package.optional-dependencies]
 google-genai = [
     { name = "langchain-google-genai" },
 ]
 
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 [[package]]
 name = "langchain-anthropic"
 version = "1.4.6"
@@ -743,6 +776,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "langgraph-api"
 version = "0.10.0"
 source = { registry = "https://pypi.org/simple" }
@@ -786,6 +820,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "langgraph-checkpoint"
 version = "4.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -799,6 +835,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "langgraph-cli"
 version = "0.4.30"
 source = { registry = "https://pypi.org/simple" }
@@ -821,6 +858,8 @@ inmem = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "langgraph-prebuilt"
 version = "1.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -834,6 +873,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "langgraph-runtime-inmem"
 version = "0.30.0"
 source = { registry = "https://pypi.org/simple" }
@@ -852,6 +892,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "langgraph-sdk"
 version = "0.4.2"
 source = { registry = "https://pypi.org/simple" }
@@ -888,6 +930,7 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/c3/13/8186a9867c67f3fef9958a1d60b45f46c1a9b5d28f67d8fd136f28ceab3f/langsmith-0.8.16-py3-none-any.whl", hash = "sha256:081e57c0175d142192683288740a796eb0eb32d9e703b4bf9133678ceefe3286", size = 500303, upload-time = "2026-06-15T17:41:22.33Z" },
 ]
 
+<<<<<<< HEAD
 [package.optional-dependencies]
 otel = [
     { name = "opentelemetry-api" },
@@ -976,6 +1019,8 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/cb/7a/7fe66f5f3682b1dd47d88cc4e11f1c6c0966b737de2d16671146e23c39a5/opentelemetry_semantic_conventions-0.63b1-py3-none-any.whl", hash = "sha256:dfe5ef4dee82586b746f522b818ceb298d00b3d59f660042bd79404bff8d0682", size = 203713, upload-time = "2026-05-21T16:32:47.016Z" },
 ]
 
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 [[package]]
 name = "orjson"
 version = "3.11.9"
@@ -1054,6 +1099,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "pathspec"
 version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1078,6 +1124,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "pyasn1"
 version = "0.6.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1179,6 +1227,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "pyjwt"
 version = "2.13.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1200,6 +1249,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "python-dotenv"
 version = "1.2.2"
 source = { registry = "https://pypi.org/simple" }
@@ -1272,6 +1323,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "setuptools"
 version = "82.0.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1290,6 +1342,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "sniffio"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1299,6 +1353,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "sse-starlette"
 version = "3.3.4"
 source = { registry = "https://pypi.org/simple" }
@@ -1333,6 +1388,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "tenacity"
 version = "9.1.4"
 source = { registry = "https://pypi.org/simple" }
@@ -1342,6 +1399,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "truststore"
 version = "0.10.4"
 source = { registry = "https://pypi.org/simple" }
@@ -1351,6 +1409,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "typing-extensions"
 version = "4.15.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1432,6 +1492,7 @@ wheels = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "uvicorn"
 version = "0.49.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1543,6 +1604,8 @@ wheels = [
 ]
 
 [[package]]
+=======
+>>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 name = "wcmatch"
 version = "10.1"
 source = { registry = "https://pypi.org/simple" }

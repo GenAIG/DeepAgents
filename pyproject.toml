@@ -6,16 +6,9 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "deepagents>=0.6.10",
-<<<<<<< HEAD
     "langchain[google-genai]>=1.3.9",
     "langchain-core>=1.4.7",
     "langchain-google-genai>=4.2.5",
     "python-dotenv>=1.2.2",
     "langgraph-cli[inmem]>=0.4.30",
-=======
-    "langchain>=1.3.9",
-    "langchain-core>=1.4.7",
-    "langchain-google-genai>=4.2.5",
-    "python-dotenv>=1.2.2",
->>>>>>> 31a4bb9f3242bee215c7793706c4f3462f262e3e
 ]

@@ -861,3 +861,49 @@ https://docs.langchain.com/oss/python/langchain/middleware/built-in
 https://ai.google.dev
 
 ---
+
+
+
+## Backends
+
+In Deep Agents, agents get file-like tools such as:
+
+- ls
+- read_file
+- write_file
+- glob
+- grep
+
+These tools do not directly decide where files are stored. The backend decides.
+
+## References
+
+### Official Documentation
+- https://docs.langchain.com/oss/python/deepagents
+
+### Backend Concepts
+
+#### StateBackend
+Used for:
+- Temporary notes
+- Current thread storage
+- Session-level persistence
+
+#### FileSystemBackend
+Used for:
+- Reading files from local system
+- Working with project repositories
+- Persistent file storage
+
+#### Custom Backends
+Examples:
+- Amazon S3
+- Google Cloud Storage (GCS)
+- Azure Blob Storage
+- Database-backed storage
+
+Example:
+
+```python
+class S3Storage:
+    ...

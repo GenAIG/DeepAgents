@@ -2,6 +2,9 @@
     "dependencies": ".",
     "graphs": {
         "deepagent-default": "Deepagent1:agent",
-        "Deepagent_tool-default": "Deepagent_tool:agent"
+        "Deepagent_tool-default": "Deepagent_tool:agent",
+        "todolistdeepagent-default":"todolistdeepagent:agent",
+        "backendsampleagent-default":"backendsample:agent",
+        "backendprod-default":"backendprod:agent"
     }
 }
