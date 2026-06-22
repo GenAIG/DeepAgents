@@ -5,6 +5,7 @@
         "Deepagent_tool-default": "Deepagent_tool:agent",
         "todolistdeepagent-default":"todolistdeepagent:agent",
         "backendsampleagent-default":"backendsample:agent",
-        "backendprod-default":"backendprod:agent"
+        "backendprod-default":"backendprod:agent",
+        "skilldemo-default":"skilldemo:agent"
     }
 }

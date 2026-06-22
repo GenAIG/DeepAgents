@@ -907,3 +907,79 @@ Example:
 ```python
 class S3Storage:
     ...
+
+# Skills in DeepAgents
+
+## Overview
+
+Skills allow us to customize how a specific activity should be performed **without writing code**. Instead, we define the behavior using a Markdown file (`.md`).
+
+Skills provide a simple way to extend DeepAgents by adding reusable instructions, workflows, and domain-specific knowledge.
+
+---
+
+## How Skills Work
+
+In DeepAgents:
+
+* The **folder name** represents the **skill name**.
+* Each skill folder must contain a file named **`SKILL.md`**.
+* The skill folders must be stored in the **FileSystemBackend**.
+* When a prompt is received, DeepAgent searches for matching skill folders and loads the relevant `SKILL.md` file.
+
+---
+
+## Skill Directory Structure
+
+```text
+filesystem/
+├── code-review/
+│   └── SKILL.md
+├── aws-architecture/
+│   └── SKILL.md
+└── documentation/
+    └── SKILL.md
+```
+
+---
+
+## Example Skill
+
+**Folder Structure**
+
+```text
+aws-architecture/
+└── SKILL.md
+```
+
+**SKILL.md**
+
+```md
+# AWS Architecture Expert
+
+When helping users with AWS architecture:
+
+- Follow AWS Well-Architected Framework principles.
+- Recommend secure and scalable solutions.
+- Consider cost optimization.
+- Provide architecture diagrams when appropriate.
+```
+
+---
+
+## Requirements
+
+* The skill folder name becomes the skill identifier.
+* A `SKILL.md` file is mandatory inside each skill folder.
+* Skills must be accessible through the configured **FileSystemBackend**.
+* DeepAgent automatically discovers and loads matching skills based on the user prompt.
+
+---
+
+## References
+
+### Official Documentation
+
+[Official Document](https://docs.langchain.com/oss/python/deepagents/skills)Refer Here for official docs on skills.
+
+
