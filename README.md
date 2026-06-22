@@ -980,6 +980,6 @@ When helping users with AWS architecture:
 
 ### Official Documentation
 
-[Official Document](https://docs.langchain.com/oss/python/deepagents/skills)Refer Here for official docs on skills.
+- https://docs.langchain.com/oss/python/deepagents/skills  Refer Here for official docs on skills.
 
 
